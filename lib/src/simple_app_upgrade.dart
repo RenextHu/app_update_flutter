@@ -237,7 +237,11 @@ class _SimpleAppUpgradeWidget extends State<SimpleAppUpgradeWidget> {
                   ),
             widget.force
                 ? Container()
-                : Container(width: .5, color: Colors.grey,height: 45,),
+                : Container(
+                    width: .5,
+                    color: Colors.grey,
+                    height: 45,
+                  ),
             Expanded(
               child: _buildOkActionButton(),
             ),

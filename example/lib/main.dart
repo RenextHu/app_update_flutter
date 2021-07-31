@@ -57,26 +57,27 @@ class _HomeState extends State<Home> {
   }
 
   _checkAppUpgrade() {
-    AppUpgrade.appUpgrade(
-      context,
-      _checkAppInfo(),
-      cancelText: '以后再说',
-      okText: '马上升级',
-      iosAppId: 'id88888888',
-      appMarketInfo: AppMarket.huaWei,
-      onCancel: () {
-        print('onCancel');
-      },
-      onOk: () {
-        print('onOk');
-      },
-      downloadProgress: (count, total) {
-        print('count:$count,total:$total');
-      },
-      downloadStatusChange: (DownloadStatus status, {dynamic error}) {
-        print('status:$status,error:$error');
-      },
-    );
+    AppUpgrade.appUpgrade(context, _checkAppInfo(),
+        cancelText: '暂不更新',
+        okText: '立即更新',
+        iosAppId: 'id88888888',
+        appMarketInfo: AppMarket.huaWei,
+        onCancel: () {
+          print('onCancel');
+        },
+        onOk: () {
+          print('onOk');
+        },
+        cancelTextStyle: TextStyle(fontSize: 14, color: Colors.greenAccent),
+        okTextStyle: TextStyle(fontSize: 14, color: Colors.red),
+        okBackgroundColors: [Colors.white,Colors.white],
+        downloadProgress: (count, total) {
+          print('count:$count,total:$total');
+        },
+        downloadStatusChange: (DownloadStatus status, {dynamic error}) {
+          print('status:$status,error:$error');
+        },
+        borderRadius: 10);
   }
 
   Future<AppUpgradeInfo> _checkAppInfo() async {
@@ -91,7 +92,7 @@ class _HomeState extends State<Home> {
           '4、修复一些软件在使用时自动退出bug',
           '5、新增加了分类查看功能'
         ],
-        force: false,
+        force: true,
       );
     });
   }
