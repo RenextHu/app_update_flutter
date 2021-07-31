@@ -70,14 +70,15 @@ class _HomeState extends State<Home> {
         },
         cancelTextStyle: TextStyle(fontSize: 14, color: Colors.greenAccent),
         okTextStyle: TextStyle(fontSize: 14, color: Colors.red),
-        okBackgroundColors: [Colors.white,Colors.white],
+        okBackgroundColors: [Colors.brown, Colors.brown],
         downloadProgress: (count, total) {
           print('count:$count,total:$total');
         },
         downloadStatusChange: (DownloadStatus status, {dynamic error}) {
           print('status:$status,error:$error');
         },
-        borderRadius: 10,contentStyle: TextStyle(fontSize: 14));
+        borderRadius: 10,
+        contentStyle: TextStyle(fontSize: 14));
   }
 
   Future<AppUpgradeInfo> _checkAppInfo() async {
@@ -92,7 +93,7 @@ class _HomeState extends State<Home> {
           '4、修复一些软件在使用时自动退出bug',
           '5、新增加了分类查看功能'
         ],
-        force: true,
+        force: false,
       );
     });
   }

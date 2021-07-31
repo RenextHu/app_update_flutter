@@ -206,8 +206,8 @@ class _SimpleAppUpgradeWidget extends State<SimpleAppUpgradeWidget> {
   ///
   _buildAppInfo() {
     return Container(
-        padding: EdgeInsets.only(left: 15, right: 15, bottom: 30),
-        height: 165,
+        padding: EdgeInsets.only(left: 15, right: 15, bottom: 26),
+        height: 105,
         child: ListView(
           children: widget.contents.map((f) {
             return Text(
@@ -286,10 +286,12 @@ class _SimpleAppUpgradeWidget extends State<SimpleAppUpgradeWidget> {
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
-            color: Theme.of(context).primaryColor,
+            color: widget.okBackgroundColors.length == 0
+                ? Theme.of(context).primaryColor
+                : widget.okBackgroundColors[0],
           ),
           height: 40,
-          margin: EdgeInsets.only(bottom: 32, left: 13, right: 13),
+          margin: EdgeInsets.only(bottom: 26, left: 13, right: 13),
           alignment: Alignment.center,
           child: Text(widget.okText ?? '立即体验',
               style: widget.okTextStyle ?? TextStyle(color: Colors.white)),
