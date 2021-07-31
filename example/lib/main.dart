@@ -77,7 +77,7 @@ class _HomeState extends State<Home> {
         downloadStatusChange: (DownloadStatus status, {dynamic error}) {
           print('status:$status,error:$error');
         },
-        borderRadius: 10);
+        borderRadius: 10,contentStyle: TextStyle(fontSize: 14));
   }
 
   Future<AppUpgradeInfo> _checkAppInfo() async {

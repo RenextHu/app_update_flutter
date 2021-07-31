@@ -126,35 +126,37 @@ class AppUpgrade {
             onWillPop: () async {
               return false;
             },
-            child: Dialog(
-                shape: RoundedRectangleBorder(
-                    borderRadius:
-                        BorderRadius.all(Radius.circular(borderRadius))),
-                child: SimpleAppUpgradeWidget(
-                  title: title,
-                  titleStyle: titleStyle,
-                  contents: contents,
-                  contentStyle: contentStyle,
-                  cancelText: cancelText,
-                  cancelTextStyle: cancelTextStyle,
-                  okText: okText,
-                  okTextStyle: okTextStyle,
-                  okBackgroundColors: okBackgroundColors ??
-                      [
-                        Theme.of(context).primaryColor,
-                        Theme.of(context).primaryColor
-                      ],
-                  progressBarColor: progressBarColor,
-                  borderRadius: borderRadius,
-                  downloadUrl: apkDownloadUrl,
-                  force: force,
-                  iosAppId: iosAppId,
-                  appMarketInfo: appMarketInfo,
-                    onCancel: onCancel,
-                    onOk: onOk,
-                    downloadProgress: downloadProgress,
-                    downloadStatusChange: downloadStatusChange
-                )),
+            child: Padding(
+              padding: EdgeInsets.only(left: 20, right: 20),
+              child: Dialog(
+                  shape: RoundedRectangleBorder(
+                      borderRadius:
+                          BorderRadius.all(Radius.circular(borderRadius))),
+                  child: SimpleAppUpgradeWidget(
+                      title: title,
+                      titleStyle: titleStyle,
+                      contents: contents,
+                      contentStyle: contentStyle,
+                      cancelText: cancelText,
+                      cancelTextStyle: cancelTextStyle,
+                      okText: okText,
+                      okTextStyle: okTextStyle,
+                      okBackgroundColors: okBackgroundColors ??
+                          [
+                            Theme.of(context).primaryColor,
+                            Theme.of(context).primaryColor
+                          ],
+                      progressBarColor: progressBarColor,
+                      borderRadius: borderRadius,
+                      downloadUrl: apkDownloadUrl,
+                      force: force,
+                      iosAppId: iosAppId,
+                      appMarketInfo: appMarketInfo,
+                      onCancel: onCancel,
+                      onOk: onOk,
+                      downloadProgress: downloadProgress,
+                      downloadStatusChange: downloadStatusChange)),
+            ),
           );
         });
   }

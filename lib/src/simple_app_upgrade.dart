@@ -207,7 +207,7 @@ class _SimpleAppUpgradeWidget extends State<SimpleAppUpgradeWidget> {
   _buildAppInfo() {
     return Container(
         padding: EdgeInsets.only(left: 15, right: 15, bottom: 30),
-        height: 200,
+        height: 165,
         child: ListView(
           children: widget.contents.map((f) {
             return Text(
@@ -224,10 +224,12 @@ class _SimpleAppUpgradeWidget extends State<SimpleAppUpgradeWidget> {
   _buildAction() {
     return Column(
       children: <Widget>[
-        Divider(
-          height: .5,
-          color: Colors.grey,
-        ),
+        widget.force
+            ? Container()
+            : Divider(
+                height: .5,
+                color: Colors.grey,
+              ),
         Row(
           children: <Widget>[
             widget.force
@@ -279,6 +281,24 @@ class _SimpleAppUpgradeWidget extends State<SimpleAppUpgradeWidget> {
   /// 确定按钮
   ///
   _buildOkActionButton() {
+    if (widget.force) {
+      return InkWell(
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            color: Theme.of(context).primaryColor,
+          ),
+          height: 40,
+          margin: EdgeInsets.only(bottom: 32, left: 13, right: 13),
+          alignment: Alignment.center,
+          child: Text(widget.okText ?? '立即体验',
+              style: widget.okTextStyle ?? TextStyle(color: Colors.white)),
+        ),
+        onTap: () {
+          _clickOk();
+        },
+      );
+    }
     var borderRadius =
         BorderRadius.only(bottomRight: Radius.circular(widget.borderRadius));
     if (widget.force) {
