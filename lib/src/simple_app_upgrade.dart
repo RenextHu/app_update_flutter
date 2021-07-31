@@ -11,26 +11,27 @@ import 'liquid_progress_indicator.dart';
 /// des:app升级提示控件
 ///
 class SimpleAppUpgradeWidget extends StatefulWidget {
-  const SimpleAppUpgradeWidget({@required this.title,
-    this.titleStyle,
-    @required this.contents,
-    this.contentStyle,
-    this.cancelText,
-    this.cancelTextStyle,
-    this.okText,
-    this.okTextStyle,
-    this.okBackgroundColors,
-    this.progressBar,
-    this.progressBarColor,
-    this.borderRadius = 10,
-    this.downloadUrl,
-    this.force = false,
-    this.iosAppId,
-    this.appMarketInfo,
-    this.onCancel,
-    this.onOk,
-    this.downloadProgress,
-    this.downloadStatusChange});
+  const SimpleAppUpgradeWidget(
+      {@required this.title,
+      this.titleStyle,
+      @required this.contents,
+      this.contentStyle,
+      this.cancelText,
+      this.cancelTextStyle,
+      this.okText,
+      this.okTextStyle,
+      this.okBackgroundColors,
+      this.progressBar,
+      this.progressBarColor,
+      this.borderRadius = 10,
+      this.downloadUrl,
+      this.force = false,
+      this.iosAppId,
+      this.appMarketInfo,
+      this.onCancel,
+      this.onOk,
+      this.downloadProgress,
+      this.downloadStatusChange});
 
   ///
   /// 升级标题
@@ -141,8 +142,8 @@ class _SimpleAppUpgradeWidget extends State<SimpleAppUpgradeWidget> {
           _downloadProgress > 0
               ? Positioned.fill(child: _buildDownloadProgress())
               : Container(
-            height: 10,
-          )
+                  height: 10,
+                )
         ],
       ),
     );
@@ -173,25 +174,31 @@ class _SimpleAppUpgradeWidget extends State<SimpleAppUpgradeWidget> {
   /// 构建标题
   ///
   _buildTitle() {
-    return Container(child: Container(
-        alignment: Alignment.centerLeft,
-        margin: EdgeInsets.only(top: 21, bottom: 0, left: 21, right: 0),
-        // padding: EdgeInsets.only(left:21),
-        child: Column(children: [
-          Text('新版本',
-              style: widget.titleStyle ??
-                  TextStyle(fontSize: 17, color: Colors.white)),
-          Text(widget.title ?? '',
-              style: widget.titleStyle ??
-                  TextStyle(fontSize: 14, color: Colors.white))
-        ], crossAxisAlignment: CrossAxisAlignment.start,)),
+    return Container(
+      child: Container(
+          alignment: Alignment.centerLeft,
+          margin: EdgeInsets.only(top: 21, bottom: 0, left: 21, right: 0),
+          // padding: EdgeInsets.only(left:21),
+          child: Column(
+            children: [
+              Text('新版本',
+                  style: widget.titleStyle ??
+                      TextStyle(fontSize: 17, color: Colors.white)),
+              Text(widget.title ?? '',
+                  style: widget.titleStyle ??
+                      TextStyle(fontSize: 14, color: Colors.white))
+            ],
+            crossAxisAlignment: CrossAxisAlignment.start,
+          )),
       decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage("images/top_bg@3x.png"),
             fit: BoxFit.cover,
           ),
-          borderRadius: BorderRadius.circular(10)
-      ), alignment: Alignment.center, height: 142,);
+          borderRadius: BorderRadius.circular(10)),
+      alignment: Alignment.center,
+      height: 142,
+    );
   }
 
   ///
@@ -218,7 +225,7 @@ class _SimpleAppUpgradeWidget extends State<SimpleAppUpgradeWidget> {
     return Column(
       children: <Widget>[
         Divider(
-          height: 1,
+          height: .5,
           color: Colors.grey,
         ),
         Row(
@@ -226,8 +233,11 @@ class _SimpleAppUpgradeWidget extends State<SimpleAppUpgradeWidget> {
             widget.force
                 ? Container()
                 : Expanded(
-              child: _buildCancelActionButton(),
-            ),
+                    child: _buildCancelActionButton(),
+                  ),
+            widget.force
+                ? Container()
+                : Container(width: .5, color: Colors.grey,height: 45,),
             Expanded(
               child: _buildOkActionButton(),
             ),
@@ -266,7 +276,7 @@ class _SimpleAppUpgradeWidget extends State<SimpleAppUpgradeWidget> {
   ///
   _buildOkActionButton() {
     var borderRadius =
-    BorderRadius.only(bottomRight: Radius.circular(widget.borderRadius));
+        BorderRadius.only(bottomRight: Radius.circular(widget.borderRadius));
     if (widget.force) {
       borderRadius = BorderRadius.only(
           bottomRight: Radius.circular(widget.borderRadius),
@@ -276,12 +286,8 @@ class _SimpleAppUpgradeWidget extends State<SimpleAppUpgradeWidget> {
     if (widget.okBackgroundColors == null ||
         widget.okBackgroundColors.length != 2) {
       _okBackgroundColors = [
-        Theme
-            .of(context)
-            .primaryColor,
-        Theme
-            .of(context)
-            .primaryColor
+        Theme.of(context).primaryColor,
+        Theme.of(context).primaryColor
       ];
     }
     return Ink(
@@ -315,10 +321,7 @@ class _SimpleAppUpgradeWidget extends State<SimpleAppUpgradeWidget> {
           value: _downloadProgress,
           direction: Axis.vertical,
           valueColor: AlwaysStoppedAnimation(widget.progressBarColor ??
-              Theme
-                  .of(context)
-                  .primaryColor
-                  .withOpacity(0.4)),
+              Theme.of(context).primaryColor.withOpacity(0.4)),
           borderRadius: widget.borderRadius,
         );
   }
