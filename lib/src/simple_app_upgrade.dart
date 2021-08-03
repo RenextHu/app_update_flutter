@@ -191,11 +191,10 @@ class _SimpleAppUpgradeWidget extends State<SimpleAppUpgradeWidget> {
             crossAxisAlignment: CrossAxisAlignment.start,
           )),
       decoration: BoxDecoration(
-          // image: DecorationImage(
-          //   image: AssetImage("images/top_bg@3x.png"),
-          //   fit: BoxFit.cover,
-          // ),
-        color: Colors.red,
+          image: DecorationImage(
+            image: AssetImage("images/top_bg@3x.png"),
+            fit: BoxFit.cover,
+          ),
           borderRadius: BorderRadius.circular(10)),
       alignment: Alignment.center,
       height: 142,
@@ -207,8 +206,8 @@ class _SimpleAppUpgradeWidget extends State<SimpleAppUpgradeWidget> {
   ///
   _buildAppInfo() {
     return Container(
-        padding: EdgeInsets.only(left: 15, right: 15, bottom: 26),
-        height: 105,
+        padding: EdgeInsets.only(left: 15, right: 15, bottom: 10),
+        height: 130,
         child: ListView(
           children: widget.contents.map((f) {
             return Text(
