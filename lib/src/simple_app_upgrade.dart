@@ -191,10 +191,11 @@ class _SimpleAppUpgradeWidget extends State<SimpleAppUpgradeWidget> {
             crossAxisAlignment: CrossAxisAlignment.start,
           )),
       decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("images/top_bg@3x.png"),
-            fit: BoxFit.cover,
-          ),
+          // image: DecorationImage(
+          //   image: AssetImage("images/top_bg@3x.png"),
+          //   fit: BoxFit.cover,
+          // ),
+        color: Colors.red,
           borderRadius: BorderRadius.circular(10)),
       alignment: Alignment.center,
       height: 142,
