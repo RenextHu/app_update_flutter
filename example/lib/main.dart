@@ -119,7 +119,7 @@ class _HomeState extends State<Home> {
         Text('packageName:${_appInfo?.packageName}'),
         Text('versionName:${_appInfo?.versionName}'),
         Text('versionCode:${_appInfo?.versionCode}'),
-        Text('安装的应用商店:$_installMarkets'),
+        Text('安装的应用商店1:$_installMarkets'),
       ],
     );
   }
